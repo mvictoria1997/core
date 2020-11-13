@@ -13,6 +13,7 @@ export class BlockFactory {
         const hash: Buffer = HashAlgorithms.sha256(payloadHash);
 
         data.blockSignature = Hash.signECDSA(hash, keys);
+		  console.log(data.blockSignature);
         data.id = Block.getId(data);
 
         return this.fromData(data);
