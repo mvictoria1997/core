@@ -4,12 +4,13 @@ import {readFileSync } from 'fs';
 
 export class Hash {
     public static signECDSA(hash: Buffer, keys: IKeyPair): string {
-		 return Hash.signUOV(hash, keys);
+		 //return Hash.signUOV(hash, keys);
 		  return secp256k1.signatureExport(secp256k1.sign(hash, Buffer.from(keys.privateKey, "hex"))).toString("hex");
     }
 
     public static verifyECDSA(hash: Buffer, signature: Buffer | string, publicKey: Buffer | string): boolean {
-		  return Hash.verifyUOV(hash, signature, publicKey);
+		  //return Hash.verifyUOV(hash, signature, publicKey);
+		  return Hash.verifyECDSATransaction(hash, sginature, publicKey);
 		  /*const bufferSignature = signature instanceof Buffer ? signature : Buffer.from(signature, "hex");
         const signatureRS = secp256k1.signatureImport(bufferSignature);
 
