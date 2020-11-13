@@ -99,7 +99,7 @@ export class Deserializer {
         const transactions: ITransaction[] = [];
         block.transactions = [];
 		  console.log(transactionLengths.length);
-		  console.log(buf.length);
+		  console.log(buf);
         for (const length of transactionLengths) {
             const transactionBytes = buf.readBytes(length).toBuffer();
             const transaction = deserializeTransactionsUnchecked
