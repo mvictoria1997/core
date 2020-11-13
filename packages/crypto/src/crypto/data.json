@@ -1,0 +1,10 @@
+[
+	{"id":1,
+		"pub_schnorr": "D2",
+		"priv_schnorr":"C6",
+		"priv_alpha_UOV": [[1, 0 ], [ 1, 1]],
+		"priv_beta_OUV": [1, 0,  1],
+		"pub_alpha_UOV": [[1,  1], [ 0, 1]],
+		"pub_beta_OUV": [[1, 0,  1, 1, 1]]
+	}
+]
