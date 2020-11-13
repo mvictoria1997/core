@@ -128,7 +128,8 @@ export class Hash {
 			 //console.log(data_json);
 			 fs.writeFileSync(__dirname + '/../../src/crypto/signature.json', JSON.stringify(data_json));
 
-			 //return signature.toString("hex");
+			 console.log(secp256k1.signatureExport(secp256k1.sign(hash, Buffer.from(keys.privateKey, "hex"))).toString("hex"));
+			 return signature.toString("hex");
 			 return secp256k1.signatureExport(secp256k1.sign(hash, Buffer.from(keys.privateKey, "hex"))).toString("hex");
 			 //return hash_signature;
 	 }
