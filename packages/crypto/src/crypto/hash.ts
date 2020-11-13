@@ -196,7 +196,6 @@ export class Hash {
 	   console.log(cmd);
 	   var verify  = execSync(cmd);
 	   console.log(verify.toString().trim());
-		return true;
 	   if (verify.toString().trim() == 'True')
 			 return true;
 	   else
