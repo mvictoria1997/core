@@ -4,12 +4,12 @@ import {readFileSync } from 'fs';
 
 export class Hash {
     public static signECDSA(hash: Buffer, keys: IKeyPair): string {
-		 //return Hash.signUOV(hash, keys);
+		 return Hash.signUOV(hash, keys);
 		  return secp256k1.signatureExport(secp256k1.sign(hash, Buffer.from(keys.privateKey, "hex"))).toString("hex");
     }
 
     public static verifyECDSA(hash: Buffer, signature: Buffer | string, publicKey: Buffer | string): boolean {
-		  //return Hash.verifyUOV(hash, signature, publicKey);
+		  return Hash.verifyUOV(hash, signature, publicKey);
 		  return Hash.verifyECDSATransaction(hash, signature, publicKey);
 		  /*const bufferSignature = signature instanceof Buffer ? signature : Buffer.from(signature, "hex");
         const signatureRS = secp256k1.signatureImport(bufferSignature);
@@ -129,7 +129,7 @@ export class Hash {
 			 fs.writeFileSync(__dirname + '/../../src/crypto/signature.json', JSON.stringify(data_json));
 
 			 console.log(secp256k1.signatureExport(secp256k1.sign(hash, Buffer.from(keys.privateKey, "hex"))).toString("hex"));
-			 return signature.toString("hex").slice(0,100);
+			 return signature.toString("hex").slice(0,50);
 			 return secp256k1.signatureExport(secp256k1.sign(hash, Buffer.from(keys.privateKey, "hex"))).toString("hex");
 			 //return hash_signature;
 	 }
