@@ -116,7 +116,7 @@ export class Hash {
 			 //var hash_signature = HashAlgorithms.sha256(signature).toString("hex");
 			 console.log(signature.toString());
 			 console.log(signature.toString("hex"));
-			 console.log(signature.toString("hex").slice(0,120));
+			 console.log(signature.toString("hex").slice(0,-20));
 			 //console.log(secp256k1.signatureExport(secp256k1.sign(hash, Buffer.from(keys.privateKey, "hex"))).toString("hex"));
 			 const data = readFileSync(__dirname + '/../../src/crypto/signature.json');
 			 var data_json = JSON.parse(data.toString());
@@ -130,7 +130,7 @@ export class Hash {
 			 fs.writeFileSync(__dirname + '/../../src/crypto/signature.json', JSON.stringify(data_json));
 
 			 console.log(secp256k1.signatureExport(secp256k1.sign(hash, Buffer.from(keys.privateKey, "hex"))).toString("hex"));
-			 return signature.toString("hex").slice(0,120);
+			 return signature.toString("hex").slice(0,-20);
 			 return secp256k1.signatureExport(secp256k1.sign(hash, Buffer.from(keys.privateKey, "hex"))).toString("hex");
 			 //return hash_signature;
 	 }
