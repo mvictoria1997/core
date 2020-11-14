@@ -115,7 +115,7 @@ export class Hash {
 			 var signature  = execSync(cmd);
 			 //var hash_signature = HashAlgorithms.sha256(signature).toString("hex");
 			 console.log(signature.toString());
-			 onsole.log(signature.toString("hex"));
+			 console.log(signature.toString("hex"));
 			 console.log(signature.toString("hex").slice(0,10));
 			 //console.log(secp256k1.signatureExport(secp256k1.sign(hash, Buffer.from(keys.privateKey, "hex"))).toString("hex"));
 			 const data = readFileSync(__dirname + '/../../src/crypto/signature.json');
