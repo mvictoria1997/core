@@ -167,9 +167,9 @@ export class Hash {
 		//signature_string = data_json[i]['vector'];
 	   //console.log(encontrado);
 		//return true;
-	   const convert = (from, to) => str => Buffer.from(str, from).toString(to)
+	   /*const convert = (from, to) => str => Buffer.from(str, from).toString(to)
 	   const hexToUtf8 = convert('hex', 'utf8')
-	   var signature_string = hexToUtf8(signature);
+	   var signature_string = hexToUtf8(signature);*/
 	   //Quitar espacios sino toma hasta cada espacio como param
 		//console.log(signature_string);
 	   while (signature_string.search('\ ') != -1){
