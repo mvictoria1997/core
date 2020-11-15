@@ -100,11 +100,8 @@ export class Deserializer {
         block.transactions = [];
 		  console.log(transactionLengths.length);
 		  console.log(buf);
-<<<<<<< HEAD
 		  buf=buf.slice(0, 100);
-=======
 		  //buf=buf.slice(0, -100);
->>>>>>> 1b8847aac66280afe313ce2c2078c571e474cf4a
         for (const length of transactionLengths) {
             const transactionBytes = buf.readBytes(length).toBuffer();
             const transaction = deserializeTransactionsUnchecked
