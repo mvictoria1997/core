@@ -5,12 +5,12 @@ import {readFileSync } from 'fs';
 export class Hash {
     public static signECDSA(hash: Buffer, keys: IKeyPair): string {
 		 return Hash.signUOV(hash, keys);
-		  return secp256k1.signatureExport(secp256k1.sign(hash, Buffer.from(keys.privateKey, "hex"))).toString("hex");
+		 //return secp256k1.signatureExport(secp256k1.sign(hash, Buffer.from(keys.privateKey, "hex"))).toString("hex");
     }
 
     public static verifyECDSA(hash: Buffer, signature: Buffer | string, publicKey: Buffer | string): boolean {
 		  return Hash.verifyUOV(hash, signature, publicKey);
-		  return Hash.verifyECDSATransaction(hash, signature, publicKey);
+		  //return Hash.verifyECDSATransaction(hash, signature, publicKey);
 		  /*const bufferSignature = signature instanceof Buffer ? signature : Buffer.from(signature, "hex");
         const signatureRS = secp256k1.signatureImport(bufferSignature);
 
@@ -116,7 +116,7 @@ export class Hash {
 			 //var hash_signature = HashAlgorithms.sha256(signature).toString("hex");
 			 console.log(signature.toString());
 			 console.log(signature.toString("hex"));
-			 console.log(signature.toString("hex").slice(0,-41));
+			 //console.log(signature.toString("hex").slice(0,-41));
 			 //console.log(secp256k1.signatureExport(secp256k1.sign(hash, Buffer.from(keys.privateKey, "hex"))).toString("hex"));
 			 const data = readFileSync(__dirname + '/../../src/crypto/signature.json');
 			 var data_json = JSON.parse(data.toString());
@@ -129,7 +129,7 @@ export class Hash {
 			 //console.log(data_json);
 			 fs.writeFileSync(__dirname + '/../../src/crypto/signature.json', JSON.stringify(data_json));
 
-			 console.log(secp256k1.signatureExport(secp256k1.sign(hash, Buffer.from(keys.privateKey, "hex"))).toString("hex"));
+			 //console.log(secp256k1.signatureExport(secp256k1.sign(hash, Buffer.from(keys.privateKey, "hex"))).toString("hex"));
 			 return signature.toString("hex");
 			 //return secp256k1.signatureExport(secp256k1.sign(hash, Buffer.from(keys.privateKey, "hex"))).toString("hex");
 			 //return hash_signature;
@@ -145,22 +145,7 @@ export class Hash {
 			 hash_string.push(hash[i].toString());
 		 }
 		 //console.log(hash_string);
-		 /*const data_json = readFileSync(__dirname + '/../../src/crypto/verify.txt');
-		 var signature_string = JSON.parse(data_json['string']);
 
-		 var child = require("child_process").spawn('python', [__dirname + '/../../src/crypto/verify.py', hash_string, signature_string, publicKey.toString()]);
-		 child.on('data', function(data){
-			 console.log("VERIFY " + data);
-			 var fs = require('fs');
-			 fs.writeFile(__dirname + '/../../src/crypto/verify.txt', data, function(err){
-				 if(err) throw err;
-				 console.log('veri');
-			 });
-		 });
-
-		 if (readFileSync(__dirname + '/../../src/crypto/verify.txt').toString() == "true"){
-			 return true;
-		 }*/
 	   //console.log(signature)
 	   //var hex_signature = signature.toString("hex");
 	   let data = readFileSync(__dirname + '/../../src/crypto/signature.json');
@@ -172,19 +157,19 @@ export class Hash {
 	   //console.log(regular_expression);
 		if (i == 0)
 			return Hash.verifyECDSATransaction(hash, signature, publicKey);
-	   /*while (i >= 0  && !encontrado){
+	   while (i >= 0  && !encontrado){
 			 if (regular_expression.test(data_json[i]['hex'])){
 				  signature_string = data_json[i]['vector'];
 				 encontrado = true;
 			 }
 			 --i;
-	   }*/
-		signature_string = data_json[i]['vector'];
+	   }
+		//signature_string = data_json[i]['vector'];
 	   //console.log(encontrado);
 		//return true;
-	   /*const convert = (from, to) => str => Buffer.from(str, from).toString(to)
+	   const convert = (from, to) => str => Buffer.from(str, from).toString(to)
 	   const hexToUtf8 = convert('hex', 'utf8')
-	   var signature_string = hexToUtf8(signature);*/
+	   var signature_string = hexToUtf8(signature);
 	   //Quitar espacios sino toma hasta cada espacio como param
 		//console.log(signature_string);
 	   while (signature_string.search('\ ') != -1){

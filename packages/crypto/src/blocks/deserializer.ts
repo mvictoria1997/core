@@ -13,7 +13,6 @@ export class Deserializer {
     ): { data: IBlockData; transactions: ITransaction[] } {
         const block = {} as IBlockData;
         let transactions: ITransaction[] = [];
-		  console.log(serializedHex);
         const buffer = Buffer.from(serializedHex, "hex");
         const buf: ByteBuffer = new ByteBuffer(buffer.length, true);
         buf.append(buffer);
@@ -98,10 +97,6 @@ export class Deserializer {
 
         const transactions: ITransaction[] = [];
         block.transactions = [];
-		  console.log(transactionLengths.length);
-		  console.log(buf.readUint32());
-		  //buf=buf.slice(0, 100);
-		  //buf=buf.slice(0, -100);
         for (const length of transactionLengths) {
             const transactionBytes = buf.readBytes(length).toBuffer();
             const transaction = deserializeTransactionsUnchecked
