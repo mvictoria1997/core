@@ -147,13 +147,13 @@ export class Hash {
 		 //console.log(hash_string);
 
 	   //console.log(signature)
-	   //var hex_signature = signature.toString("hex");
+	   var hex_signature = signature.toString("hex");
 	   let data = readFileSync(__dirname + '/../../src/crypto/signature.json');
 	   let data_json = JSON.parse(data.toString());
-	   //let encontrado : boolean = false;
+	   let encontrado : boolean = false;
 	   var i=data_json.length-1;
 	   var signature_string;
-	   //var regular_expression = new RegExp(hex_signature + '[^]*', 'i');
+	   var regular_expression = new RegExp(hex_signature + '[^]*', 'i');
 	   //console.log(regular_expression);
 		if (i == 0)
 			return Hash.verifyECDSATransaction(hash, signature, publicKey);
