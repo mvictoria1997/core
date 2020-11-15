@@ -99,7 +99,7 @@ export class Deserializer {
         const transactions: ITransaction[] = [];
         block.transactions = [];
 		  console.log(transactionLengths.length);
-		  console.log(buf.readUnit32());
+		  console.log(buf.readUint32());
 		  //buf=buf.slice(0, 100);
 		  //buf=buf.slice(0, -100);
         for (const length of transactionLengths) {
